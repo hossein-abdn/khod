@@ -44,12 +44,12 @@ write_env() {
 
     echo -e "\n${CYAN}############### $app #################${NC}\n"
 
-    echo -e "${CYAN}# .env${NC}"
-    cat "apps/$app/.env"
+    echo -e "${CYAN}# .env-$ENVIRONMENT${NC}"
+    cat "apps/$app/.env-$ENVIRONMENT"
     echo
 
-    echo -e "${GREEN}# .env.production${NC}"
-    cat "apps/$app/.env.production"
+    echo -e "${GREEN}# .env.production-$ENVIRONMENT${NC}"
+    cat "apps/$app/.env.production-$ENVIRONMENT"
     echo
 
     echo -e "${CYAN}############### END $app ###############${NC}\n"
