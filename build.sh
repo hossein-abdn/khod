@@ -72,14 +72,14 @@ build_and_tag() {
     echo "📦 Tagged: $FULL_IMAGE_NAME:$IMAGE_TAG and :latest"
 }
 
-build_and_tag "rent"
+#build_and_tag "rent"
 # build_and_tag "agent"
-build_and_tag "admin"
-build_and_tag "adviser"
+#build_and_tag "admin"
+#build_and_tag "adviser"
 
 
 echo "✅ Build and tagging complete!"
 
 # clean up
-git restore .
-git clean -fd
+#git restore .
+#git clean -fd
