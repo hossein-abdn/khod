@@ -34,8 +34,8 @@ write_env() {
     local env_vars=$2
     local prod_vars=$3
 
-    echo -e "$env_vars" > apps/$app/.env
-    echo -e "$prod_vars" > apps/$app/.env.production
+    echo -e "$env_vars" > apps/$app/.env-$ENVIRONMENT
+    echo -e "$prod_vars" > apps/$app/.env.production-$ENVIRONMENT
 
     # Fancy output with colors
     local GREEN="\033[0;32m"
