@@ -1,0 +1,81 @@
+#!/bin/bash
+
+source "$(dirname "${BASH_SOURCE[0]}")/share_urls.sh"
+
+declare -A RENT_ENV_VARS
+declare -A RENT_PROD_ENV_VARS
+
+# .env
+
+RENT_ENV_VARS["local"]=$(cat <<EOF
+NEXT_PUBLIC_REAL_LOGIN_URL=""
+NEXT_PUBLIC_LEGAL_LOGIN_URL=""
+NEXT_PUBLIC_AGENT_FLAG=false
+NEXT_PUBLIC_INQUERY_TIMER=60
+EOF
+)
+
+RENT_ENV_VARS["rent"]=$(cat <<EOF
+NEXT_PUBLIC_REAL_LOGIN_URL=""
+NEXT_PUBLIC_LEGAL_LOGIN_URL=""
+NEXT_PUBLIC_AGENT_FLAG=false
+NEXT_PUBLIC_INQUERY_TIMER=60
+EOF
+)
+
+RENT_ENV_VARS["test"]=$(cat <<EOF
+NEXT_PUBLIC_REAL_LOGIN_URL="$LOGIN_URL&state=test"
+NEXT_PUBLIC_LEGAL_LOGIN_URL="$LEGAL_URL&state=testlegal"
+NEXT_PUBLIC_AGENT_FLAG=false
+NEXT_PUBLIC_INQUERY_TIMER=60
+EOF
+)
+
+RENT_ENV_VARS["new"]=$(cat <<EOF
+NEXT_PUBLIC_REAL_LOGIN_URL="$LOGIN_URL&state=new"
+NEXT_PUBLIC_LEGAL_LOGIN_URL="$LEGAL_URL&state=newlegal"
+NEXT_PUBLIC_AGENT_FLAG=false
+NEXT_PUBLIC_INQUERY_TIMER=60
+EOF
+)
+
+RENT_ENV_VARS["prod"]=$(cat <<EOF
+NEXT_PUBLIC_REAL_LOGIN_URL="$LOGIN_URL"
+NEXT_PUBLIC_LEGAL_LOGIN_URL="$LEGAL_URL&state=legal"
+NEXT_PUBLIC_AGENT_FLAG=false
+NEXT_PUBLIC_INQUERY_TIMER=60
+EOF
+)
+
+
+# .env.production
+
+RENT_PROD_ENV_VARS["local"]=$(cat <<EOF
+NEXT_PUBLIC_BASE_URL="http://localhost"
+NEXT_PUBLIC_GHARARDADHA_URL="http://localhost"
+EOF
+)
+
+RENT_PROD_ENV_VARS["rent"]=$(cat <<EOF
+NEXT_PUBLIC_BASE_URL="https://rent.sedrehgroup.ir"
+NEXT_PUBLIC_GHARARDADHA_URL="https://gharardadha.sedrehgroup.ir"
+EOF
+)
+
+RENT_PROD_ENV_VARS["test"]=$(cat <<EOF
+NEXT_PUBLIC_BASE_URL="https://test.srem.ir"
+NEXT_PUBLIC_GHARARDADHA_URL="https://testgharardad.srem.ir"
+EOF
+)
+
+RENT_PROD_ENV_VARS["new"]=$(cat <<EOF
+NEXT_PUBLIC_BASE_URL="https://new.srem.ir"
+NEXT_PUBLIC_GHARARDADHA_URL="https://newgharardad.srem.ir"
+EOF
+)
+
+RENT_PROD_ENV_VARS["prod"]=$(cat <<EOF
+NEXT_PUBLIC_BASE_URL="https://khodnevis.mrud.ir"
+NEXT_PUBLIC_GHARARDADHA_URL="https://gharardadha.mrud.ir"
+EOF
+)

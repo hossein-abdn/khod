@@ -1,0 +1,2 @@
+LOGIN_URL='https://sso.my.gov.ir/oauth2/authorize?response_type=code&scope=openid profile&client_id=srem.mrud&redirect_uri=https://srem.mrud.ir'
+LEGAL_URL='https://sso.my.gov.ir/oauth2/authorize?response_type=code&scope=openid profile&client_id=khodnevis.legal&redirect_uri=https://khodnevis.mrud.ir'
